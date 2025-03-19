@@ -1,0 +1,60 @@
+services:
+  # Microservice Order
+  order-service:
+    build:
+      context: ./order-service/order
+      # dockerfile: ./order-service/order/dockerfile
+    container_name: order-service
+    ports:
+      - "3000:3000"
+    environment:
+      - PORT=3000
+    networks:
+      - app-network
+  # Microservice Paiement
+  paiement-service:
+    build:
+      context: ./paiement-service/paiement
+    container_name: paiement-service
+    ports:
+      - "3001:3001"
+    environment:
+      - PORT=3001
+    networks:
+      - app-network
+  # # Microservice Inventory
+  # inventory-service:
+  #   build:
+  #     context: ./inventory-service
+  #   container_name: inventory-service
+  #   ports:
+  #     - "3002:3002"
+  #   environment:
+  #     - PORT=3002
+  #   networks:
+  #     - app-network
+  # Gateway
+  # api-gateway:
+  #   build:
+  #     context: ./getway-service
+  #   container_name: getway-service
+  #   ports:
+  #     - "9091:9091"
+  #   environment:
+  #     - PORT=9091
+  #   networks:
+  #     - app-network
+
+  # # Frontend
+  # frontend:
+  #   build:
+  #     context: ./front-office
+  #   container_name: front-office
+  #   ports:
+  #     - "80:80"
+  #   networks:
+  #     - app-network
+
+networks:
+  app-network:
+    driver: bridge
