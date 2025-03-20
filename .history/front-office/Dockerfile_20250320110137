@@ -14,8 +14,8 @@ RUN npm install
 COPY . .
 
 # Exposer le port utilisé par le gateway
-ENV PORT=9091
+ENV PORT=5173
 EXPOSE ${PORT}
 
 # Démarrer le serveur
-CMD ["node", "server.js"]
+CMD ["npm", "run dev"]

@@ -18,4 +18,4 @@ ENV PORT=9091
 EXPOSE ${PORT}
 
 # Démarrer le serveur
-CMD ["node", "server.js"]
+CMD ["npm", "run dev"]

@@ -51,7 +51,7 @@ services:
     container_name: front-office
     ports:
       - "5173:5173"
-    environment:
+     environment:
       - CHOKIDAR_USEPOLLING=true # Permettre la détection des changements de fichiers dans Docker
 
     networks:
